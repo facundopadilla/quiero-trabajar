@@ -5,12 +5,14 @@ from app.restapi import api_router
 from tortoise.contrib.fastapi import register_tortoise
 
 # Import all modules from models
-import importlib, glob
+from importlib import import_module
+from glob import glob
+
 modules = []
-for module in glob.glob("./app/models/*.py"):
+for module in glob("./app/models/*.py"):
     if "__" not in module:
         module = module[module.rfind("/")+1:module.rfind(".")]
-        modules.append(importlib.import_module(f"app.models.{module}"))
+        modules.append(import_module(f"app.models.{module}"))
 
 # Create app
 application = FastAPI(title=settings.PROJECT_NAME, debug=settings.DEBUG, version=settings.VERSION)
