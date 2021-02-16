@@ -25,7 +25,7 @@ async def get_user(user_id: str):
 @router.put("/users/{user_id}", response_model=User_Pydantic, responses=get404())
 async def update_user(user_id: str, user: UserIn_Pydantic):
     await UserModel.filter(id=user_id).update(**user.dict(exclude_unset=True))
-    return await User_Pydantic.from_queryset_single(Users.get(id=user_id))
+    return await User_Pydantic.from_queryset_single(UserModel.get(id=user_id))
 
 @router.delete("/users/{user_id}", responses=get404())
 async def delete_user(user_id: str):
