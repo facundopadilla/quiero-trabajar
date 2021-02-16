@@ -1,0 +1,11 @@
+[default]
+POSTGRES_URI = "postgres://root:12345678@localhost:5432/quiero_trabajar"
+PROJECT_NAME = "Quiero Trabajar"
+VERSION = "1.0"
+
+[development]
+DEBUG = "True"
+UVICORN_RELOAD = "True"
+
+[production]
+DEBUG = "False"

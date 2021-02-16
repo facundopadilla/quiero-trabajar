@@ -4,21 +4,6 @@ from tortoise.models import Model
 from tortoise.contrib.pydantic import pydantic_model_creator
 from uuid import uuid4
 
-class UserJobModel(Model):
-    id = fields.UUIDField(default=uuid4, unique=True, null=False, pk=True)
-    initialization_date = fields.DatetimeField(auto_now=True, null=False, description="Initialize job")
-    finish_date = fields.DatetimeField(auto_now=True, null=False, description="Finish job")
-    company = fields.CharField(max_length=100, null=False, description="The name of the company where you worked")
-    position = fields.CharField(max_length=100, null=False, description="What you doing?")
-    freelance = fields.BooleanField(null=False, default=False, description="Do you a worked how freelancer?")
-    description = fields.TextField(null=True)
-
-    def __str__(self):
-        return self.company
-    
-    class Meta:
-        table = "user_job"
-
 class UserModel(Model):
     id = fields.UUIDField(pk=True, default=uuid4, description="The ID of user")
     date_created = fields.DatetimeField(auto_now_add=True, description="The date of creation")
@@ -39,34 +24,7 @@ class UserModel(Model):
         return self.username
     
     class Meta:
-        table = "user"
+        table = "users"
 
 User_Pydantic = pydantic_model_creator(UserModel, name="User")
 UserIn_Pydantic = pydantic_model_creator(UserModel, name="UserIn", exclude_readonly=True)
-UserJob_Pydantic = pydantic_model_creator(UserJobModel, name="UserJob")
-UserJobIn_Pydantic = pydantic_model_creator(UserJobModel, name="UserJobIn", exclude_readonly=True)
-
-"""class UserJob(BaseModel):
-    initialization_date: datetime
-    finish_date: datetime
-    company: str
-    position: str
-    freelance: bool
-    description: str
-
-class User(BaseModel):
-    id: str
-    date_created: datetime = None
-    first_name: str
-    last_name: str
-    birthday: datetime
-    email: EmailStr
-    phone_number: int
-    username: str
-    password: SecretStr
-    confirm_email: bool
-    country: str
-    city: str
-    jobs: List[Job]
-    website: str
-"""
