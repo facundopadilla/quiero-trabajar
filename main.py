@@ -28,11 +28,11 @@ application.add_middleware(
 application.include_router(api_router.router)
 
 # Init Tortoise ORM and the app
-
 register_tortoise(
     application,
     db_url=settings.POSTGRES_URI,
     modules={"models": modules},
     generate_schemas=True,
-    add_exception_handlers = True
+    add_exception_handlers = True,
     )
+
