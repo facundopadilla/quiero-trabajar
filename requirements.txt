@@ -1,6 +1,9 @@
+aerich==0.5.0
 aiosqlite==0.16.1
 asyncpg==0.21.0
 click==7.1.2
+ddlparse==1.9.0
+dictdiffer==0.8.1
 dnspython==2.1.0
 dynaconf==3.1.2
 email-validator==1.1.2
@@ -10,6 +13,7 @@ idna==3.1
 iso8601==0.1.14
 loguru==0.5.3
 pydantic==1.7.3
+pyparsing==2.4.7
 PyPika==0.44.1
 pytz==2020.5
 starlette==0.13.6
