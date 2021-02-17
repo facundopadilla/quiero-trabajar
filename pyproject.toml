@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "quiero-trabajar-demo"
+version = "0.1.0"
+description = "Quiero trabajar is a project for the search of job"
+authors = ["Facundo <facundo.padilla@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+gino = {extras = ["pg", "starlette"], version = "^1.0.1"}
+fastapi = "^0.63.0"
+uvicorn = "^0.13.3"
+gunicorn = "^20.0.4"
+alembic = "^1.5.4"
+psycopg2-binary = "^2.8.6"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.2"
+requests = "^2.25.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
