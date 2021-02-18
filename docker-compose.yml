@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  postgresql:
+    image: postgres:12.4-alpine
+    container_name: quiero_trabajar_db
+    restart: always
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=12345678
+      - POSTGRES_DB=quiero_trabajar
+      - PGDATA=/var/lib/postgresql/data/pgdata
+
+volumes:
+  pgdata: {}
+
