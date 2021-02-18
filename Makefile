@@ -11,3 +11,5 @@ migrate:
 	poetry run alembic revision --autogenerate -m "$(msg)"
 upgrade:
 	poetry run alembic upgrade head
+downgrade:
+	poetry run alembic downgrade -1

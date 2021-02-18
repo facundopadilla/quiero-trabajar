@@ -11,8 +11,9 @@ async def get_user(uid: int):
 
 @router.post("/users")
 async def add_user(user: UserModel):
-    rv = await User.create(nickname=user.name)
-    return rv.to_dict()
+    data = dict(user)
+    rv = await User.create(**data)
+    return dict(user)
 
 @router.delete("/users/{uid}")
 async def delete_user(uid: int):
