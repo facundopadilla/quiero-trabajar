@@ -1,8 +1,8 @@
-"""
+"""foreign key correcto
 
-Revision ID: e91b2dc59e4e
-Revises: 95561ef305f8
-Create Date: 2021-02-18 15:12:06.000114
+Revision ID: 7c5d32848273
+Revises: bec5f29f3c2a
+Create Date: 2021-02-18 22:39:55.742264
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'e91b2dc59e4e'
-down_revision = '95561ef305f8'
+revision = '7c5d32848273'
+down_revision = 'bec5f29f3c2a'
 branch_labels = None
 depends_on = None
 

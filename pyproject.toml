@@ -24,4 +24,5 @@ requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.plugins."quiero_trabajar_demo.modules"]
-"users" = "quiero_trabajar_demo.views.users"
+"employee" = "quiero_trabajar_demo.views.employee"
+"jobs" = "quiero_trabajar_demo.views.jobs"

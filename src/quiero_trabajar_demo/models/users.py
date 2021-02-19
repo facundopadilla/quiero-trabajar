@@ -1,14 +1,10 @@
 from . import db
-from re import match, fullmatch
 from uuid import uuid4
 from datetime import datetime
-from urllib.parse import urlparse
-from sqlalchemy.orm import validates
 from sqlalchemy.dialects.postgresql import UUID
 
 
 class User(db.Model):
-    __tablename__ = "users"
 
     id = db.Column(UUID(), primary_key=True, unique=True, index=True, nullable=False, default=uuid4)
     date_created = db.Column(db.DateTime, default=datetime.utcnow())
