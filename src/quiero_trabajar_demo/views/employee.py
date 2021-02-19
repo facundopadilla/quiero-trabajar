@@ -1,13 +1,20 @@
-from fastapi import APIRouter
+# FastAPI dependencies
+from fastapi import APIRouter, Depends
+
+# Employee
 from ..models.employee import Employee
 from ..models.schemas.employee import EmployeeModel
 
+# Job
 from ..models.jobs import Job
+
+# OAuth2 Scheme
+from ..security.oauth import oauth2_scheme
 
 router = APIRouter()
 
 @router.get("/employee/{uid}", tags=["employee"])
-async def get_employee(uid: str):
+async def get_employee(token: str = Depends(oauth2_scheme), uid: str):
     employee = await Employee.get_or_404(uid)
     jobs = await Job.query.where(Job.employee_id == employee.id).gino.all()
     employee = employee.to_dict()
